@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conpecode #4 - React</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/javascript">
+        const app = document.getElementById("app");
+
+        const counterDiv = document.createElement("div");
+        counterDiv.id = "counter";
+        let counterText = document.createTextNode("0");
+        counterDiv.appendChild(counterText);
+        app.appendChild(counterDiv);
+
+        const buttonContainer = document.createElement("div");
+        buttonContainer.class = "buttonContainer";
+
+        const addButton = document.createElement("button");
+        addButton.id = "add";
+        const addIcon = document.createTextNode("+");
+        addButton.appendChild(addIcon);
+        buttonContainer.appendChild(addButton);
+        
+        const removeButton = document.createElement("button");
+        removeButton.id = "remove";
+        const removeIcon = document.createTextNode("-");
+        removeButton.appendChild(removeIcon);
+        buttonContainer.appendChild(removeButton);
+
+        app.appendChild(buttonContainer);
+
+        // Logica
+        let counter = 0;
+
+        function addCounter() {
+            counter = counter + 1;
+            updateHTML(counterDiv, counter);
+        }
+        addButton.onclick = addCounter;
+
+        function removeCounter() {
+            counter = counter - 1;
+            updateHTML(counterDiv, counter);
+        }
+        removeButton.onclick = removeCounter;
+
+        function updateHTML(domElement, html) {
+            domElement.innerHTML = html;
+        } 
+    </script>
+</body>
+</html>
